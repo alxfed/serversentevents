@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server sent events</title>
+</head>
+<body>
+<h1>Server-Sent Events</h1>
+  
+<script>
+  // 1. Create a new connection to the server endpoint
+  // Replace '/events' with the actual URL of your server's SSE stream
+  const eventSource = new EventSource('https://localhost:8443/events');
+  
+  // 2. Listen for messages from the server
+  eventSource.onmessage = (event) => {
+      // 'event.data' contains the text payload sent by the server
+      console.log("New message received:", event.data);
+  
+      // Example: Parsing JSON data if your server sends JSON strings
+      try {
+          const data = JSON.parse(event.data);
+          console.log("Parsed data:", data);
+      } catch (err) {
+          console.error("Data was not JSON:", event.data);
+      }
+  };
+  
+  // 3. Handle connection errors
+  eventSource.onerror = (error) => {
+      console.error("EventSource failed:", error);
+      // The browser will automatically attempt to reconnect,
+      // so you usually don't need to manually retry here.
+  };
+</script>
+</body>
+</html>
