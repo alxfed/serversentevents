@@ -18,13 +18,7 @@
       // 'event.data' contains the text payload sent by the server
       console.log("New message received:", event.data);
   
-      // Example: Parsing JSON data if your server sends JSON strings
-      try {
-          const data = JSON.parse(event.data);
-          console.log("Parsed data:", data);
-      } catch (err) {
-          console.error("Data was not JSON:", event.data);
-      }
+      // Do something with this data here
   };
   
   // 3. Handle connection errors
