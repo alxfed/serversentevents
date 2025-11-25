@@ -1,0 +1,2 @@
+# serversentevents
+Example page
