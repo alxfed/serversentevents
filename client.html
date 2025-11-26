@@ -169,7 +169,7 @@
 
     <div class="container">
         <h2>Connection Control</h2>
-        <input type="text" id="urlInput" class="url-input" value="http://localhost:8000/events"
+        <input type="text" id="urlInput" class="url-input" value="https://localhost:443/events"
                placeholder="Enter SSE endpoint URL">
 
         <div class="controls">
@@ -358,7 +358,7 @@
             }
 
             try {
-                const response = await fetch('http://localhost:8000/send', {
+                const response = await fetch('https://localhost:443/send', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
