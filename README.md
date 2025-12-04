@@ -1,2 +1,2 @@
 # serversentevents
-Example page
+Example page here.
